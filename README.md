@@ -1,0 +1,1 @@
+# trivy-plugin-vulners-db
