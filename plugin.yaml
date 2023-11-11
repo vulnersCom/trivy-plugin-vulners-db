@@ -1,0 +1,18 @@
+name: "vulners-db"
+repository: github.com/vulnersCom/trivy-plugin-vulners-db
+version: "0.0.1"
+usage: trivy vulners-db -- <plugin args> -- <trivy args>
+description: |-
+  A Trivy plugin that download custom trivy db.
+  Usage: trivy vulners-db -- <plugin args> -- <trivy args>
+platforms:
+  - selector:
+      os: linux
+      arch: amd64
+    uri: https://github.com/vulnersCom/trivy-plugin-vulners-db/releases/download/v0.0.1/trivy-vulners-db_0.0.1_linux_amd64.tar.gz
+    bin: ./trivy-vulners-db
+  - selector:
+      os: mac
+      arch: arm64
+    uri: https://github.com/vulnersCom/trivy-plugin-vulners-db/releases/download/v0.0.1/trivy-vulners-db_0.0.1_mac_arm64.tar.gz
+    bin: ./trivy-vulners-db
