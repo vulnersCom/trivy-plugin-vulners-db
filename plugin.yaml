@@ -16,3 +16,8 @@ platforms:
       arch: arm64
     uri: https://github.com/vulnersCom/trivy-plugin-vulners-db/releases/download/v0.0.1/trivy-vulners-db_0.0.1_mac_arm64.tar.gz
     bin: ./trivy-vulners-db
+  - selector:
+      os: windows
+      arch: amd64
+    uri: https://github.com/vulnersCom/trivy-plugin-vulners-db/releases/download/v0.0.1/trivy-vulners-db_0.0.1_windows_amd64.tar.gz
+    bin: ./trivy-vulners-db
