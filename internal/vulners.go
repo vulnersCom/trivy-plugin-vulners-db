@@ -1,15 +1,24 @@
 package internal
 
 import (
+	"errors"
 	"github.com/aquasecurity/trivy-db/pkg/metadata"
 	"github.com/cavaliergopher/grab/v3"
 	"log"
+	"os"
 	"path/filepath"
 	"time"
 )
 
 func Download(cacheDir string, apiKey string) {
 	dbPath := filepath.Join(cacheDir, "db")
+	if _, err := os.Stat(dbPath); errors.Is(err, os.ErrNotExist) {
+		err := os.MkdirAll(dbPath, 0755)
+		if err != nil {
+			log.Fatalf("Can't create dir: %v", err)
+		}
+	}
+
 	client := grab.NewClient()
 	req, _ := grab.NewRequest(dbPath, "https://vulners.com/api/v3/trivy/free?apiKey="+apiKey)
 
